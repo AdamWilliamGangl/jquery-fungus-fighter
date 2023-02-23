@@ -41,8 +41,9 @@ function render() {
     //if attack power equals to zero, fungus wins, replace walk class with jump
     if (attackPoints === 0){
         $('.freaky-fungus').removeClass('walk');
-        $('.freaky-fungus').addClass('jump')};
-
+        $('.freaky-fungus').addClass('jump');
+        $('.attack-btn').attr('disabled', true);
+    }
 }
 
 //function to attack, which will decrease attackPoints and HP
