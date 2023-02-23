@@ -31,12 +31,21 @@ function onReady() {
 }
 
 function render() {
+    //automatically render the global elements for AP and HP in the DOM.
     $('.ap-text').html(attackPoints + ' ' + 'AP')
     $('.hp-text').html(fungusHP + ' ' + 'HP')
+    //if hp equals zero, fungus loses, replace walk class with dead
+    if (fungusHP === 0){
+    $('.freaky-fungus').removeClass('walk');
+    $('.freaky-fungus').addClass('dead')};
+    //if attack power equals to zero, fungus wins, replace walk class with jump
+    if (attackPoints === 0){
+        $('.freaky-fungus').removeClass('walk');
+        $('.freaky-fungus').addClass('jump')};
+
 }
 
-//function to attack, which will decrease attackPoints 
-//variable and fungusHP variable.
+//function to attack, which will decrease attackPoints and HP
 function arcaneScepter() {
     console.log('Arcane scepter attack!')
     fungusHP -=14;
@@ -45,7 +54,7 @@ function arcaneScepter() {
     attackPointsToZero();
     render();
 }
-
+//function to attack, which will decrease attackPoints and HP
 function entangle() {
     console.log('Entangle attack!')
     fungusHP -=9;
@@ -54,7 +63,7 @@ function entangle() {
     attackPointsToZero();
     render();
 }
-
+//function to attack, which will decrease attackPoints and HP
 function dragonBlade() {
     console.log('Dragon Blade attack!')
     fungusHP -=47;
@@ -63,7 +72,7 @@ function dragonBlade() {
     attackPointsToZero();
     render();
 }
-
+//function to attack, which will decrease attackPoints and HP
 function starFire() {
     console.log('Star Fire attack!')
     fungusHP -=25;
@@ -73,10 +82,6 @@ function starFire() {
     render();
 }
 
-//If freaky fungus hp reaches 0, replace walk class with dead class on fungus.
-
-//if attack points hp reaches 0, replace walk class with jump class on fungus.
-
 //if attack points reaches 0, give all attack buttons a disabled attribute.
 
 //a function to change the health of the fungus to zero if it would go below zero.
@@ -85,14 +90,9 @@ function fungusHealthToZero(){
         fungusHP = 0;
     }
 }
-
+//a function to change the attack power to zero if it would go below zero.
 function attackPointsToZero(){
     if (attackPoints < 0) {
         attackPoints = 0;
     }
-}
-
-//a function to replace the walk class with the dead class on the fungus when hp = 0
-function fungusDeath(){
-    console.log(fungusHP)
 }
