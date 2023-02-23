@@ -46,16 +46,28 @@ function render() {
 
 function arcaneScepter() {
     console.log('Arcane scepter attack!')
+    fungusHP -=14;
+    attackPoints -=12;
+    render();
 }
 
 function entangle() {
     console.log('Entangle attack!')
+    fungusHP -=9;
+    attackPoints -=23;
+    render();
 }
 
 function dragonBlade() {
     console.log('Dragon Blade attack!')
+    fungusHP -=47;
+    attackPoints -=38;
+    render();
 }
 
 function starFire() {
     console.log('Star Fire attack!')
+    fungusHP -=25;
+    attackPoints -=33;
+    render();
 }
